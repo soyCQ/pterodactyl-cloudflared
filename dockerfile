@@ -8,12 +8,10 @@ RUN wget https://github.com/cloudflare/cloudflared/releases/latest/download/clou
 
 RUN userdel -r container || true
 
-# Crear el nuevo usuario
 RUN useradd -m -d /home/container -s /bin/bash container
 
 USER container
 ENV USER=container HOME=/home/container
 WORKDIR /home/container
 
-ENTRYPOINT ["/bin/bash"]
-CMD ["/home/container/entrypoint.sh"]
+ENTRYPOINT ["/bin/bash", "-c", "/bin/bash"]
