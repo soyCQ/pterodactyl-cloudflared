@@ -7,7 +7,10 @@ RUN wget https://github.com/cloudflare/cloudflared/releases/latest/download/clou
     dpkg -i cloudflared-linux-amd64.deb && \
     rm cloudflared-linux-amd64.deb
 
+
+RUN userdel -r container || true
 RUN useradd -m -d /home/container -s /bin/bash container
+
 USER container
 ENV USER=container HOME=/home/container
 WORKDIR /home/container
