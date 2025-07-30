@@ -19,4 +19,6 @@ USER container
 ENV USER=container HOME=/home/container
 WORKDIR /home/container
 
-ENTRYPOINT ["/bin/bash", "-c", "echo 'Cloudflared Started..' && exec $(echo ${STARTUP} | sed -e 's/{{/${/g' -e 's/}}/}/g')"]
+COPY ./entrypoint.sh /entrypoint.sh
+
+CMD ["/bin/bash", "/entrypoint.sh"]
