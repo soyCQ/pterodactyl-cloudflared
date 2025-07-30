@@ -1,4 +1,4 @@
-FROM quay.io/parkervcp/pterodactyl-images:base_debian
+FROM quay.io/parkervcp/pterodactyl-images:base_debian:bullseye
 
 RUN apt-get update && \
     apt-get install -y --no-install-recommends curl wget build-essential ca-certificates && \
