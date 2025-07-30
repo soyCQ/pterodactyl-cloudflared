@@ -14,4 +14,4 @@ USER container
 ENV USER=container HOME=/home/container
 WORKDIR /home/container
 
-ENTRYPOINT ["/bin/bash", "-c", "echo 'Cloudflared Started..' && /bin/bash"]
+ENTRYPOINT ["/bin/bash", "-c", "echo 'Cloudflared Started..' && /bin/bash && eval ${STARTUP}"]
