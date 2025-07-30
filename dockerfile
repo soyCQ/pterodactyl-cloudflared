@@ -1,6 +1,9 @@
 FROM quay.io/parkervcp/pterodactyl-images:base_debian
 
-RUN apt-get update && apt-get install -y curl wget
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends curl wget && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/*
 
 RUN wget https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64.deb && \
     dpkg -i cloudflared-linux-amd64.deb && \
