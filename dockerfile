@@ -16,9 +16,7 @@ RUN userdel -r container || true
 RUN useradd -m -d /home/container -s /bin/bash container
 
 USER container
-ENV  USER=container HOME=/home/container
+ENV USER=container HOME=/home/container
 WORKDIR /home/container
 
-COPY ./entrypoint.sh /entrypoint.sh
-
-CMD ["/bin/bash", "/entrypoint.sh"]
+ENTRYPOINT ["/bin/bash", "-c", "echo 'Cloudflared Started..' && eval $(echo ${STARTUP} | sed -e 's/{{/${/g' -e 's/}}/}/g')"]
