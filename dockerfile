@@ -1,9 +1,6 @@
-FROM quay.io/parkervcp/pterodactyl-images:base_debian:bullseye
+FROM quay.io/parkervcp/pterodactyl-images:base_debian
 
-RUN apt-get update && \
-    apt-get install -y --no-install-recommends curl wget build-essential ca-certificates && \
-    apt-get clean && \
-    rm -rf /var/lib/apt/lists/*
+RUN apt-get update && apt-get install -y curl wget
 
 RUN wget https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64.deb && \
     dpkg -i cloudflared-linux-amd64.deb && \
@@ -17,4 +14,4 @@ USER container
 ENV USER=container HOME=/home/container
 WORKDIR /home/container
 
-ENTRYPOINT ["/bin/bash", "-c", "echo 'Cloudflared Started..' && /bin/bash && eval ${STARTUP}"]
+ENTRYPOINT ["/bin/bash", "-c", "echo 'Cloudflared Started..'"]
