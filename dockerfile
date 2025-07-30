@@ -19,5 +19,5 @@ USER container
 ENV USER=container HOME=/home/container
 WORKDIR /home/container
 
-COPY entrypoint.sh /tmp/entrypoint.sh
-ENTRYPOINT ["/bin/bash", "/tmp/entrypoint.sh"]
+COPY entrypoint.sh /entrypoint.sh
+ENTRYPOINT ["/bin/bash", "/entrypoint.sh"]
