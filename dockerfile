@@ -19,7 +19,7 @@ USER container
 ENV USER=container HOME=/home/container
 WORKDIR /home/container
 
-COPY entrypoint.sh /entrypoint.sh
-RUN chmod +x /entrypoint.sh
+COPY entrypoint.sh /home/container/entrypoint.sh
+RUN chmod +x /home/container/entrypoint.sh
 
-ENTRYPOINT ["/entrypoint.sh"]
+ENTRYPOINT ["/bin/bash", "/home/container/entrypoint.sh"]
