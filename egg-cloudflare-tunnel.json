@@ -4,7 +4,7 @@
         "version": "PTDL_v2",
         "update_url": null
     },
-    "exported_at": "2025-02-12T13:47:52+01:00",
+    "exported_at": "2025-07-30T15:24:50+02:00",
     "name": "Cloudflare Tunnel",
     "author": "franciscor00@outlook.es",
     "description": null,
@@ -13,7 +13,7 @@
         "soycq\/pterodactyl-cloudflared:latest": "soycq\/pterodactyl-cloudflared:latest"
     },
     "file_denylist": [],
-    "startup": "cloudflared",
+    "startup": "{{CMD}}",
     "config": {
         "files": "{}",
         "startup": "{\r\n    \"done\": \"SERVER STARTED\"\r\n}",
@@ -27,5 +27,16 @@
             "entrypoint": "ash"
         }
     },
-    "variables": []
+    "variables": [
+        {
+            "name": "Startup Command",
+            "description": "",
+            "env_variable": "CMD",
+            "default_value": "",
+            "user_viewable": true,
+            "user_editable": true,
+            "rules": "string|nullable",
+            "field_type": "text"
+        }
+    ]
 }
