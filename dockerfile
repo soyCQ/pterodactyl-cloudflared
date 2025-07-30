@@ -1,7 +1,7 @@
 FROM quay.io/parkervcp/pterodactyl-images:base_debian
 
 RUN apt-get update && \
-    apt-get install -y --no-install-recommends curl wget && \
+    apt-get install -y --no-install-recommends curl wget build-essential ca-certificates && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
